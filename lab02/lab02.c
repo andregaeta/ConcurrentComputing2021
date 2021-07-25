@@ -70,7 +70,7 @@ void createThreads()
         tids[i] = i;
         args[i] = i;
 
-        if (pthread_create(&tids[i], NULL, multiplyMatrix,(void *) &args[i])) 
+        if (pthread_create(&tids[i], NULL, multiplyMatrix, (void *) &args[i])) 
         {
             printf("Erro em pthread_create().\n");
             exit(-1);
