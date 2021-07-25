@@ -52,7 +52,7 @@ void* multiplyMatrix(void* arg)
         {
             for (int k = 0; k < _matrixSize; k++)
             {
-                int value = _inputMatrix[i * _matrixSize + k] * _inputMatrix[k * _matrixSize + j];
+                float value = _inputMatrix[i * _matrixSize + k] * _inputMatrix[k * _matrixSize + j];
                 _outputMatrix[i * _matrixSize + j] += value;
             }
         }
