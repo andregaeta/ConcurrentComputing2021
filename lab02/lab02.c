@@ -17,15 +17,15 @@ void init(int argc, char **argv)
 {
     if (argc < 3) 
     {
-        printf("Uso incorreto: digite \"%s <dimensao da matriz> <numero de threads>\"\n", argv[0]);
+        printf("Uso incorreto: digite \"%s <threads> <tamanho>\"\n", argv[0]);
         exit(-1);
     }
 
-    _matrixSize = atoi(argv[1]);
-    _threadsUsed = atoi(argv[2]);
+    _threadsUsed = atoi(argv[1]);
+    _matrixSize = atoi(argv[2]);
     
-    _inputMatrix = (float *) malloc(_matrixSize * _matrixSize * sizeof(float));
-    _outputMatrix = (float *) malloc(_matrixSize * _matrixSize * sizeof(float));
+    _inputMatrix = (float *) malloc(sizeof(float) * _matrixSize * _matrixSize);
+    _outputMatrix = (float *) malloc(sizeof(float) * _matrixSize * _matrixSize);
 
     if (_inputMatrix == NULL || _outputMatrix == NULL) 
     {
@@ -52,7 +52,8 @@ void* multiplyMatrix(void* arg)
         {
             for (int k = 0; k < _matrixSize; k++)
             {
-                _outputMatrix[i * _matrixSize + j] += _inputMatrix[i * _matrixSize + k] * _inputMatrix[k * _matrixSize + j];
+                int value = _inputMatrix[i * _matrixSize + k] * _inputMatrix[k * _matrixSize + j];
+                _outputMatrix[i * _matrixSize + j] += value;
             }
         }
     }
@@ -70,7 +71,7 @@ void createThreads()
         tids[i] = i;
         args[i] = i;
 
-        if (pthread_create(&tids[i], NULL, multiplyMatrix, (void *) &args[i])) 
+        if (pthread_create(&tids[i], NULL, multiplyMatrix,(void *) &args[i])) 
         {
             printf("Erro em pthread_create().\n");
             exit(-1);
