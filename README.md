@@ -1,7 +1,9 @@
+# ConcurrentComputing2021
+University assignments from a concurrent computing (C and Java) course.
 
-# Lab 03
+## Lab 03
 
-## 2 Threads
+### 2 Threads
 
 | Tamanho do Vetor | Tempo Concorrente | Tempo Sequencial | Razão de Aceleração |
 | ------------- | ------------- | ------------- | ------------- |
@@ -9,7 +11,7 @@
 | 10^7  | 0.024964 | 0.045967 | 1.841338 |
 | 10^9  | 2.441702 | 4.649621 | 1.904255 |
 
-## 4 Threads
+### 4 Threads
 
 | Tamanho do Vetor | Tempo Concorrente | Tempo Sequencial | Razão de Aceleração |
 | ------------- | ------------- | ------------- | ------------- |
