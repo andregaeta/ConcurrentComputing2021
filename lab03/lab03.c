@@ -7,7 +7,7 @@
 #define lli long long int
 #define MAX_VALUE 1000000
 
-int _vectorSize;
+lli _vectorSize;
 int _threadsUsed;
 
 float* _vector;
