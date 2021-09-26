@@ -62,17 +62,11 @@ void startThreads()
     }
 }
 
-void finalize()
-{
-    sem_destroy(&firstDone);
-    sem_destroy(&midProgress);
-}
-
 int main(int argc, char *argv[]) 
 {
     init();
 
     startThreads();
     
-    finalize();
+    return 0;
 }
