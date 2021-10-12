@@ -8,7 +8,7 @@ public class IO_Utility
     {
         try
         {
-           return new BufferedWriter(new FileWriter(file_path));
+            return new BufferedWriter(new FileWriter(file_path));
         }
         catch (IOException e)
         {
@@ -34,6 +34,7 @@ public class IO_Utility
     {
         if(values.isEmpty())
             return;
+
         try
         {
             for (var value : values)

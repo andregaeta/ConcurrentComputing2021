@@ -18,6 +18,7 @@ public class FileMonitor
     {
         IO_Utility.write_to_file(buffered_writer, values);
     }
+
     public void close_file()
     {
         try
@@ -56,7 +57,9 @@ public class FileMonitor
         try
         {
             while ((reader_count > 0) || (writer_count > 0))
+            {
                 wait();
+            }
 
             writer_count++;
         }
